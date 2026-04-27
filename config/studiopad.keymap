@@ -17,6 +17,16 @@
             bindings = <&WinTab>;
             key-positions = <0 1 2>;
         };
+
+        SwitchWindows {
+            bindings = <&kp LA(TAB)>;
+            key-positions = <7 6>;
+        };
+
+        SwitchInternal {
+            bindings = <&kp LC(LA(TAB))>;
+            key-positions = <7 5>;
+        };
     };
 
     macros {
@@ -466,28 +476,28 @@
         default_layer {
             display-name = "Base";
             bindings = <
-&kp ESCAPE    &kp LC(X)          &kp LC(C)   &kp PAGE_DOWN  &kp E
-&kp LC(Z)     &CB_History_macro  &kp LC(V)   &kp RIGHT      &kp J
-&Taskbar_1    &Taskbar_2         &Taskbar_3  &kp PAGE_UP    &kp O
-&Taskbar_4    &Taskbar_5         &Taskbar_6  &kp LEFT       &kp T
-&Taskbar_7    &Taskbar_8         &Taskbar_9  &Bluetooth_2
-&Bluetooth_1  &kp LA(F4)         &kp LC(F4)  &tog 1
+&kp ESCAPE    &kp LC(C)   &kp LC(V)   &kp PAGE_DOWN  &kp E
+&mkp LCLK     &mkp MCLK   &mkp RCLK   &kp RIGHT      &kp J
+&Taskbar_1    &Taskbar_2  &Taskbar_3  &kp PAGE_UP    &kp O
+&Taskbar_4    &Taskbar_5  &Taskbar_6  &kp LEFT       &kp T
+&Taskbar_7    &Taskbar_8  &Taskbar_9  &Bluetooth_2
+&Bluetooth_1  &kp LA(F4)  &kp LC(F4)  &tog 1
             >;
 
-            sensor-bindings = <&inc_dec_kp A B &inc_dec_kp C D>;
+            sensor-bindings = <&inc_dec_kp MOVE_UP &inc_dec_kp MOVE_DOWN>;
         };
 
         layer_1 {
             bindings = <
-&kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &mmv MOVE_DOWN   &trans
-&mkp LCLK     &mkp MCLK     &mkp RCLK     &mmv MOVE_RIGHT  &trans
-&trans        &trans        &trans        &mmv MOVE_UP     &trans
-&trans        &trans        &trans        &mmv MOVE_LEFT   &trans
-&trans        &trans        &trans        &trans
-&trans        &mkp MB5      &mkp MB4      &trans
+&kp NUMBER_1  &kp NUMBER_2    &kp NUMBER_3  &mmv MOVE_DOWN   &trans
+&mkp LCLK     &mkp MCLK       &mkp RCLK     &mmv MOVE_RIGHT  &trans
+&trans        &trans          &trans        &mmv MOVE_UP     &trans
+&trans        &trans          &trans        &mmv MOVE_LEFT   &trans
+&trans        &kp DOWN_ARROW  &kp UP_ARROW  &trans
+&trans        &mkp MB5        &mkp MB4      &trans
             >;
 
-            sensor-bindings = <&inc_dec_kp UP_ARROW DOWN_ARROW &inc_dec_kp C D>;
+            sensor-bindings = <&inc_dec_kp MOVE_LEFT &inc_dec_kp MOVE_RIGHT>;
         };
     };
 };
