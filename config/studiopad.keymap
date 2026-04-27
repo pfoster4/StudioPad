@@ -6,8 +6,8 @@
     combos {
         compatible = "zmk,combos";
 
-        BackspaceWord_combo {
-            bindings = <&lt 7 LC(BACKSPACE)>;
+        Delete {
+            bindings = <&lt 7 DELETE>;
             key-positions = <2 3 1>;
             layers = <0>;
         };
@@ -483,10 +483,10 @@
 &trans        &trans        &trans        &trans  &trans
 &trans        &trans        &trans        &trans  &trans
 &trans        &trans        &trans        &trans
-&trans        &trans        &trans        &tog 0
+&trans        &trans        &trans        &trans
             >;
 
-            sensor-bindings = <&inc_dec_kp E F &inc_dec_kp G H>;
+            sensor-bindings = <&inc_dec_kp A B &inc_dec_kp C D>;
         };
     };
 };
