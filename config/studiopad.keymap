@@ -11,6 +11,11 @@
             key-positions = <2 3 1>;
             layers = <0>;
         };
+
+        AllTabs {
+            bindings = <&WinTab>;
+            key-positions = <0 1 2>;
+        };
     };
 
     macros {
@@ -461,14 +466,27 @@
             display-name = "Base";
             bindings = <
 &kp ESCAPE    &kp LC(X)          &kp LC(C)   &kp PAGE_DOWN  &kp E
-&WinTab       &CB_History_macro  &kp LC(V)   &kp RIGHT      &kp J
+&kp LC(Z)     &CB_History_macro  &kp LC(V)   &kp RIGHT      &kp J
 &Taskbar_1    &Taskbar_2         &Taskbar_3  &kp PAGE_UP    &kp O
 &Taskbar_4    &Taskbar_5         &Taskbar_6  &kp LEFT       &kp T
 &Taskbar_7    &Taskbar_8         &Taskbar_9  &Bluetooth_2
-&Bluetooth_1  &kp LA(F4)         &kp LC(F4)  &Bluetooth_3
+&Bluetooth_1  &kp LA(F4)         &kp LC(F4)  &tog 1
             >;
 
             sensor-bindings = <&inc_dec_kp A B &inc_dec_kp C D>;
+        };
+
+        layer_1 {
+            bindings = <
+&kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &trans  &trans
+&trans        &trans        &trans        &trans  &trans
+&trans        &trans        &trans        &trans  &trans
+&trans        &trans        &trans        &trans  &trans
+&trans        &trans        &trans        &trans
+&trans        &trans        &trans        &tog 0
+            >;
+
+            sensor-bindings = <&inc_dec_kp E F &inc_dec_kp G H>;
         };
     };
 };
