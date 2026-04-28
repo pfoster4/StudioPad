@@ -484,20 +484,20 @@
 &Bluetooth_1  &kp LA(F4)  &kp LC(F4)  &tog 1
             >;
 
-            sensor-bindings = <&inc_dec_kp A B &inc_dec_kp C D>;
+            sensor-bindings = <&mmv MOVE_UP &mmv MOVE_DOWN>;
         };
 
         layer_1 {
             bindings = <
-&kp B      &kp NUMBER_2    &kp NUMBER_3  &mmv MOVE_DOWN   &trans
-&mkp LCLK  &mkp MCLK       &mkp RCLK     &mmv MOVE_RIGHT  &trans
-&trans     &trans          &trans        &mmv MOVE_UP     &trans
-&trans     &trans          &trans        &mmv MOVE_LEFT   &trans
-&trans     &kp DOWN_ARROW  &kp UP_ARROW  &trans
-&trans     &mkp MB5        &mkp MB4      &trans
+&kp NUMBER_1  &kp NUMBER_2    &kp NUMBER_3  &mmv MOVE_DOWN   &trans
+&mkp LCLK     &mkp MCLK       &mkp RCLK     &mmv MOVE_RIGHT  &trans
+&trans        &trans          &trans        &mmv MOVE_UP     &trans
+&trans        &trans          &trans        &mmv MOVE_LEFT   &trans
+&trans        &kp DOWN_ARROW  &kp UP_ARROW  &trans
+&trans        &mkp MB5        &mkp MB4      &trans
             >;
 
-            sensor-bindings = <&inc_dec_kp A B &inc_dec_kp C D>;
+            sensor-bindings = <&mmv MOVE_LEFT &mmv MOVE_RIGHT>;
         };
     };
 };
