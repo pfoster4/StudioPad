@@ -512,7 +512,7 @@
 &Bluetooth_1  &kp LA(F4)  &kp LC(F4)  &tog 1
             >;
 
-            sensor-bindings = <&mmv_encoder_x &inc_dec_kp C D>;
+            sensor-bindings = <&inc_dec_kp DOWN_ARROW UP_ARROW &inc_dec_kp PAGE_DOWN PAGE_UP>;
         };
 
         layer_1 {
@@ -525,7 +525,7 @@
 &trans        &mkp MB5        &mkp MB4      &trans
             >;
 
-            sensor-bindings = <&mmv_encoder_y &inc_dec_kp E F>;
+            sensor-bindings = <&inc_dec_kp DOWN_ARROW UP_ARROW &inc_dec_kp PAGE_DOWN PAGE_UP>;
         };
     };
 };
