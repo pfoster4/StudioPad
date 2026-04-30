@@ -484,17 +484,11 @@
     };
 
     behaviors {
-        mmv_encoder_x: mmv_encoder_x {
+        mmv_encoder: mmv_encoder {
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
             tap-ms = <50>;
             bindings = <&mmv MOVE_X(-100)>, <&mmv MOVE_X(100)>;
-        };
-        mmv_encoder_y: mmv_encoder_y {
-            compatible = "zmk,behavior-sensor-rotate";
-            #sensor-binding-cells = <0>;
-            tap-ms = <50>;
-            bindings = <&mmv MOVE_Y(-100)>, <&mmv MOVE_Y(100)>;
         };
     };
 
@@ -504,16 +498,16 @@
         default_layer {
             display-name = "Base";
             bindings = <
-&kp ESCAPE    &kp LC(C)   &kp LC(V)   &kp PAGE_DOWN     &kp E
-&mkp LCLK     &mkp MCLK   &mkp RCLK   &kp RIGHT         &kp J
-&Taskbar_1    &Taskbar_2  &Taskbar_3  &mmv MOVE_X(100)  &kp O
-&Taskbar_4    &Taskbar_5  &Taskbar_6  &kp LEFT          &kp T
+&kp ESCAPE    &kp LC(C)   &kp LC(V)   &kp LG(DOWN_ARROW)   &kp E
+&mkp LCLK     &mkp MCLK   &mkp RCLK   &kp LG(RIGHT_ARROW)  &kp J
+&Taskbar_1    &Taskbar_2  &Taskbar_3  &kp LG(UP_ARROW)     &kp O
+&Taskbar_4    &Taskbar_5  &Taskbar_6  &kp LG(LEFT_ARROW)   &kp T
 &Taskbar_7    &Taskbar_8  &Taskbar_9  &Bluetooth_2
 &Bluetooth_1  &kp LA(F4)  &kp LC(F4)  &tog 1
             >;
 
             sensor-bindings = <&inc_dec_kp DOWN_ARROW UP_ARROW &inc_dec_kp PAGE_DOWN PAGE_UP>;
-        };
+			};
 
         layer_1 {
             bindings = <
