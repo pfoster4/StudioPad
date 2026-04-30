@@ -475,11 +475,11 @@
     };
 
     behaviors {
-        msc_encoder: msc_encoder {
+        mmv_encoder: mmv_encoder {
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
-            tap-ms = <50>;
-            bindings = <&msc SCRL_DOWN>, <&msc SCRL_UP>;
+            tap-ms = <20>;
+            bindings = <&mmv MOVE_DOWN>, <&mmv MOVE_UP>;
         };
     };
 
@@ -496,19 +496,19 @@
 &Taskbar_7    &Taskbar_8  &Taskbar_9  &Bluetooth_2
 &Bluetooth_1  &kp LA(F4)  &kp LC(F4)  &tog 1
             >;
-            sensor-bindings = <&msc_encoder>;
+            sensor-bindings = <&mmv_encoder &inc_dec_kp C D>;
         };
 
         layer_1 {
             bindings = <
 &kp NUMBER_1  &kp NUMBER_2    &kp NUMBER_3  &mmv MOVE_DOWN   &trans
-&mkp LCLK     &mkp MCLK       &mkp RCLK     &mmv MOVE_RIGHT  &trans
+&mkp LCLK     &mkp MCLK       &mkp RCLK     &msc SCRL_UP  &trans
 &trans        &trans          &trans        &mmv MOVE_UP     &trans
-&trans        &trans          &trans        &mmv MOVE_LEFT   &trans
+&trans        &trans          &trans        &msc SCRL_DOWN   &trans
 &trans        &kp DOWN_ARROW  &kp UP_ARROW  &trans
 &trans        &mkp MB5        &mkp MB4      &trans
             >;
-            sensor-bindings = <&msc_encoder>;
+            sensor-bindings = <&mmv_encoder &inc_dec_kp E F>;
         };
     };
 };
