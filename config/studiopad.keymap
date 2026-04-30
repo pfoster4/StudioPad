@@ -476,10 +476,11 @@
             #sensor-binding-cells = <0>;
             bindings = <&mmv MOVE_DOWN>, <&mmv MOVE_UP>;
         };
-        mmv_encoder2: mmv_encoder2 {
-            compatible = "zmk,behavior-sensor-rotate-var";
-            #sensor-binding-cells = <2>;
-            bindings = <&mmv>, <&mmv>;
+        mmv_encode: mmv_encode {
+            compatible = "zmk,behavior-sensor-rotate";
+            #sensor-binding-cells = <0>;
+            tap-ms = <10>;
+            bindings = <&mmv MOVE_DOWN>, <&mmv MOVE_UP>;
         };
     };
 
@@ -510,7 +511,7 @@
 &trans        &mkp MB5        &mkp MB4      &trans
             >;
 
-            sensor-bindings = <&mmv_encoder2 MOVE_DOWN MOVE_UP>;
+            sensor-bindings = <&mmv_encode>;
         };
     };
 };
