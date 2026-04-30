@@ -1,10 +1,9 @@
-#include <behaviors.dtsi>
-#include <dt-bindings/zmk/bt.h>
-#include <dt-bindings/zmk/keys.h>
-
 #define ZMK_POINTING_DEFAULT_MOVE_VAL 2000  // default: 600
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 20    // default: 10
 
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
 
 / {
@@ -13,7 +12,7 @@
 
         Delete {
             bindings = <&lt 7 DELETE>;
-            key-positions = <2 3 1>;
+            key-positions = <2 1>;
             layers = <0>;
         };
 
@@ -30,6 +29,16 @@
         SwitchInternal {
             bindings = <&kp LC(LA(TAB))>;
             key-positions = <7 5>;
+        };
+
+        Undo {
+            bindings = <&kp LC(Z)>;
+            key-positions = <5 6>;
+        };
+
+        Save {
+            bindings = <&kp LC(S)>;
+            key-positions = <0 1>;
         };
     };
 
@@ -475,11 +484,17 @@
     };
 
     behaviors {
-        mmv_encoder: mmv_encoder {
+        mmv_encoder_x: mmv_encoder_x {
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
-            tap-ms = <80>;
-            bindings = <&mmv MOVE_DOWN>, <&mmv MOVE_UP>;
+            tap-ms = <50>;
+            bindings = <&mmv MOVE_X(-100)>, <&mmv MOVE_X(100)>;
+        };
+        mmv_encoder_y: mmv_encoder_y {
+            compatible = "zmk,behavior-sensor-rotate";
+            #sensor-binding-cells = <0>;
+            tap-ms = <50>;
+            bindings = <&mmv MOVE_Y(-100)>, <&mmv MOVE_Y(100)>;
         };
     };
 
@@ -489,26 +504,28 @@
         default_layer {
             display-name = "Base";
             bindings = <
-&kp ESCAPE    &kp LC(C)   &kp LC(V)   &kp PAGE_DOWN  &kp E
-&mkp LCLK     &mkp MCLK   &mkp RCLK   &kp RIGHT      &kp J
-&Taskbar_1    &Taskbar_2  &Taskbar_3  &kp PAGE_UP    &kp O
-&Taskbar_4    &Taskbar_5  &Taskbar_6  &kp LEFT       &kp T
+&kp ESCAPE    &kp LC(C)   &kp LC(V)   &kp PAGE_DOWN     &kp E
+&mkp LCLK     &mkp MCLK   &mkp RCLK   &kp RIGHT         &kp J
+&Taskbar_1    &Taskbar_2  &Taskbar_3  &mmv MOVE_X(100)  &kp O
+&Taskbar_4    &Taskbar_5  &Taskbar_6  &kp LEFT          &kp T
 &Taskbar_7    &Taskbar_8  &Taskbar_9  &Bluetooth_2
 &Bluetooth_1  &kp LA(F4)  &kp LC(F4)  &tog 1
             >;
-            sensor-bindings = <&mmv_encoder &inc_dec_kp C D>;
+
+            sensor-bindings = <&mmv_encoder_x &inc_dec_kp C D>;
         };
 
         layer_1 {
             bindings = <
-&kp NUMBER_1  &kp NUMBER_2    &kp NUMBER_3  &mmv MOVE_DOWN   &trans
-&mkp LCLK     &mkp MCLK       &mkp RCLK     &msc SCRL_UP  &trans
-&trans        &trans          &trans        &mmv MOVE_UP     &trans
-&trans        &trans          &trans        &msc SCRL_DOWN   &trans
+&kp NUMBER_1  &kp NUMBER_2    &kp NUMBER_3  &mmv MOVE_DOWN  &trans
+&mkp LCLK     &mkp MCLK       &mkp RCLK     &msc SCRL_UP    &trans
+&trans        &trans          &trans        &mmv MOVE_UP    &trans
+&trans        &trans          &trans        &msc SCRL_DOWN  &trans
 &trans        &kp DOWN_ARROW  &kp UP_ARROW  &trans
 &trans        &mkp MB5        &mkp MB4      &trans
             >;
-            sensor-bindings = <&mmv_encoder &inc_dec_kp E F>;
+
+            sensor-bindings = <&mmv_encoder_y &inc_dec_kp E F>;
         };
     };
 };
