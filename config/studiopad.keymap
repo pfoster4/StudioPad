@@ -32,7 +32,7 @@
         };
 
         SwitchInternal {
-            bindings = <&kp LC(LA(TAB))>;
+            bindings = <&kp LC(TAB)>;
             key-positions = <7 5>;
         };
 
