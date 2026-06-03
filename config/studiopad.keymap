@@ -502,7 +502,7 @@
 &Bluetooth_1  &kp LA(F4)  &kp LC(F4)  &tog 1
             >;
 
-            sensor-bindings = <&inc_dec_kp DOWN UP &inc_dec_kp A B>;
+            sensor-bindings = <&inc_dec_kp A B &inc_dec_kp C D>;
 			};
 
         layer_1 {
